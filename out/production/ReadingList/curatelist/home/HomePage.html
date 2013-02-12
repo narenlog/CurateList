@@ -1,0 +1,225 @@
+<wicket:head>
+
+    <script type='text/javascript'>//<![CDATA[
+    $(window).load(function(){
+        $('[id^="myCarousel"]').carousel();
+
+    });//]]>
+
+    </script>
+
+</wicket:head>
+
+<wicket:extend>
+
+
+    <span class="jumbotron">
+        <h2>See what other practitioners are recommending!</h2>
+
+
+        <a wicket:id="booksLink">Get Books from API</a>
+        
+        <div  class="input-append">
+            <form wicket:id="homeFindForm">
+                <!--input type="text" class="span4" style="height: 40px;" placeholder="Design, Marketing, Entrepreneurship, Technology"-->
+
+                <button type="submit" class="btn btn-primary">Click here to see People & Companies </button>
+            </form>
+
+        </div>
+
+
+    </span>
+
+
+
+    <br>
+
+
+
+
+    <div class="row">
+        <div class="carousel slide span8 offset1" id="myCarousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <ul class="thumbnails">
+                        <li class="span2">
+                            <div class="thumbnail" style="border:none">
+                                <a target="_blank"  href="http://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0307887898">
+                                    <img style="width: 210px; height: 145px;"src="images/productphotos/leanstartup.jpg" />
+                                </a>
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail" style="border:none">
+                                <a target="_blank"  href="http://www.amazon.com/Nice-Girls-Dont-Corner-Office/dp/0446693316">
+                                    <img style="width: 210px; height: 145px;" src="images/productphotos/nicegirlscorneroffice.jpg" />
+                                </a>
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail" style="border:none">
+                                <a target="_blank"  href="http://www.amazon.com/Linchpin-Are-Indispensable-Seth-Godin/dp/1591844096">
+                                    <img style="width: 210px; height: 145px;" src="http://richworklife.files.wordpress.com/2010/01/linchpin.jpg?w=300&h=300" />
+                                </a>
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail" style="border:none">
+                                <a target="_blank"  href="http://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X">
+                                    <img style="width: 210px; height: 145px;" src="images/productphotos/pragmatic_programmer.jpg" />
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <ul class="thumbnails">
+                        <li class="span2">
+                            <div class="thumbnail" style="border:none">
+                                <a target="_blank"  href="http://www.amazon.com/gp/product/B005CDYQSM/ref=docs-os-doi_0">
+                                    <img style="width: 210px; height: 145px;" src="images/productphotos/venture_deals.jpg" />
+                                </a>
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail" style="border:none">
+                                <a target="_blank"  href="http://www.amazon.com/Outliers-Story-Success-Malcolm-Gladwell/dp/0316017930">
+                                    <img style="width: 210px; height: 145px;" src="images/productphotos/outliers.jpg" />
+                                </a>
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail" style="border:none">
+                                <a target="_blank"  href="http://www.amazon.com/gp/product/B002RTINGU/ref=kinw_myk_ro_title">
+                                    <img style="width: 210px; height: 145px;" src="images/productphotos/inbound_marketing.jpg" />
+                                </a>
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail" style="border:none">
+                                <a target="_blank"  href="http://www.amazon.com/gp/product/B0050DIWHU/ref=kinw_myk_ro_title">
+                                    <img style="width: 210px; height: 145px;" src="images/productphotos/startup_of_you.jpeg" />
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--div class="item">
+                    <ul class="thumbnails">
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div-->
+            </div>
+            <a data-slide="prev" href="#myCarousel" class="left carousel-control">‹</a>
+            <a data-slide="next" href="#myCarousel" class="right carousel-control">›</a>
+        </div>
+    </div>
+    <!--hr-->
+    <!--div class="row">
+        <div class="carousel slide span8" id="myCarousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <ul class="thumbnails">
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <ul class="thumbnails">
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <ul class="thumbnails">
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a data-slide="prev" href="#myCarousel" class="left carousel-control">‹</a>
+            <a data-slide="next" href="#myCarousel" class="right carousel-control">›</a>
+        </div>
+    </div-->
+
+
+    <!--hr-->
+
+    <br>
+
+
+</wicket:extend>
