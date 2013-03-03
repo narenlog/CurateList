@@ -95,8 +95,9 @@ public class ItemLookupSample {
         params.put("Version", "2009-03-31");
         params.put("Operation", "ItemLookup");
         params.put("ItemId", ITEM_ID);
+        params.put("ResponseGroup", "Small,Images");  //TO  GET TITLE& IMAGES
         //params.put("ResponseGroup", "Small"); //TO GET TITLE
-        params.put("ResponseGroup", "Images");  //TO  GET IMAGES
+        //params.put("ResponseGroup", "Images");  //TO  GET IMAGES
         //params.put("AssociateTag", "progressprobl-22");    //TODO: Change to your Affiliate Tag
         params.put("AssociateTag", "DUMMY");    //TODO: Change to your Affiliate Tag
 
@@ -111,8 +112,9 @@ public class ItemLookupSample {
          * into a query string. */
         System.out.println("String form example:");
         String queryString = "Service=AWSECommerceService&Version=2009-03-31&Operation=ItemLookup&" +
+                "ResponseGroup=Small,Images" +
                 //"ResponseGroup=Small" +
-                "ResponseGroup=Images" +
+                //"ResponseGroup=Images" +
                 "&ItemId="
                 + ITEM_ID
                // +"&AssociateTag=progressprobl-22";  //TODO: Change to your Affiliate Tag

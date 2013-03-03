@@ -19,7 +19,7 @@ class BooksDataProvider {
 
            case PROVIDER.AMAZON:
                AmazonBooksDataProvider.getBooksByTitle(searchString)
-               
+               break;
                
            case PROVIDER.GOOGLE:
                GoogleBooksDataProvider.queryGoogleBooks(searchString)

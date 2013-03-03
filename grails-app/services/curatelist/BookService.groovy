@@ -15,10 +15,10 @@ class BookService implements IBookService,Serializable
     def List<BooksModel> findBooksByTitle(String title) {
             List<BooksModel> books = new BooksDataProvider().getBooksByTitle(title)
             for(BooksModel book : books){
-                System.out.println(book.getTitle())
-                System.out.println(book.getImageLinks().getSmall())
+                System.out.println("BOOK SERVICE " + book.getTitle())
+               /* System.out.println(book.getImageLinks().getSmall())
                 System.out.println(book.getImageLinks().getSmallThumbnail())
-               /* System.out.println(book.getImageLinks().getExtraLarge())
+                System.out.println(book.getImageLinks().getExtraLarge())
                 System.out.println(book.getImageLinks().getLarge())
                 System.out.println(book.getImageLinks().getMedium())
                 System.out.println(book.getImageLinks().getThumbnail())   */

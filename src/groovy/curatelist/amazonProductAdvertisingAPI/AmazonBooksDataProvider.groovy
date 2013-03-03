@@ -4,6 +4,7 @@ import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.DocumentBuilder
 import org.w3c.dom.Document
 import org.w3c.dom.Node
+import curatelist.books.BooksModel
 
 /**
  * Created by IntelliJ IDEA.
@@ -47,7 +48,7 @@ class AmazonBooksDataProvider {
 
 
 
-    public static void getBooksByTitle(String searchString){
+    public static List<BooksModel> getBooksByTitle(String searchString){
         /*
          * Set up the signed requests helper
          */
@@ -82,34 +83,85 @@ class AmazonBooksDataProvider {
         requestUrl = helper.sign(params);
         System.out.println("Signed Request is \"" + requestUrl + "\"");
 
-        title = fetchTitle(requestUrl);
-        System.out.println("Signed Title is \"" + title + "\"");
-        System.out.println();
+        List<BooksModel> booksModel = parseBookInfo(requestUrl);
 
-        /* Here is an example with string form, where the requests parameters have already been concatenated
-         * into a query string. */
-        System.out.println("String form example:");
-        String queryString = "Service=AWSECommerceService&Version=2009-03-31&Operation=ItemLookup&" +
-                //"ResponseGroup=Small" +
-                "ResponseGroup=Images" +
-                "&ItemId="
-        + ITEM_ID
-        // +"&AssociateTag=progressprobl-22";  //TODO: Change to your Affiliate Tag
-        +"&AssociateTag=DUMMY";  //TODO: Change to your Affiliate Tag
-        requestUrl = helper.sign(queryString);
-        System.out.println("Request is \"" + requestUrl + "\"");
+        return booksModel;
 
-        title = fetchTitle(requestUrl);
-        System.out.println("Title is \"" + title + "\"");
-        System.out.println();
 
+
+    }
+
+
+            /*
+
+            <Items>
+                <Request>...</Request>
+                <Item>
+                    <ASIN>0545010225</ASIN>
+                    <DetailPageURL>...</DetailPageURL>
+                    <ItemLinks>...</ItemLinks>
+                    <SmallImage>
+                    </SmallImage>
+                    <MediumImage>...</MediumImage>
+                    <LargeImage>...</LargeImage>
+                    <ImageSets>
+                        <ImageSet Category="primary">
+                            <SmallImage>
+                                <URL>
+                                    http://ecx.images-amazon.com/images/I/41qTZcMasSL._SL75_.jpg
+                                </URL>
+                                <Height Units="pixels">75</Height>
+                                <Width Units="pixels">50</Width>
+                            </SmallImage>
+                    </ImageSets>
+                    <ItemAttributes>
+                        <Author>J. K. Rowling</Author>
+                        <Creator Role="Illustrator">Mary GrandPré</Creator>
+                        <Manufacturer>Arthur A. Levine Books</Manufacturer>
+                        <ProductGroup>Book</ProductGroup>
+                        <Title>Harry Potter and the Deathly Hallows (Book 7)</Title>
+                    </ItemAttributes>
+                </Item>
+            </Items>
+             */
+
+    private static List<BooksModel> parseBookInfo(String requestUrl) {
+        List<BooksModel> booksModel = new ArrayList<BooksModel>()
+        try {
+
+           def xml = new XmlSlurper().parse(requestUrl)
+
+
+            xml."Items".each{
+                //println it.text()
+                println it."Item"."ASIN".text()
+                println it."Item"."ItemAttributes"."Author".text()
+                println it."Item"."ItemAttributes"."Title".text()
+                /*println it."Item"."SmallImage"."URL".text()
+                println it."Item"."MediumImage"."URL".text()
+                println it."Item"."LargeImage"."URL".text()
+                  */
+                println it."Item"."ImageSets"."ImageSet"."SwatchImage"."URL".text()
+                println it."Item"."ImageSets"."ImageSet"."SmallImage"."URL".text()
+                println it."Item"."ImageSets"."ImageSet"."ThumbnailImage"."URL".text()
+                println it."Item"."ImageSets"."ImageSet"."TinyImage"."URL".text()
+                println it."Item"."ImageSets"."ImageSet"."MediumImage"."URL".text()
+                println it."Item"."ImageSets"."ImageSet"."LargeImage"."URL".text()
+
+            }
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return booksModel;
     }
 
     /*
      * Utility function to fetch the response from the service and extract the
      * title from the XML.
      */
-    private static String fetchTitle(String requestUrl) {
+   /* private static String fetchTitle(String requestUrl) {
         String title = null;
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -122,7 +174,7 @@ class AmazonBooksDataProvider {
             throw new RuntimeException(e);
         }
         return title;
-    }
+    }   */
 
 }
 
