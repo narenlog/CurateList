@@ -44,11 +44,31 @@ class AmazonBooksDataProvider {
      * You can choose a different value if this value does not work in the
      * locale of your choice.
      */
-    private static final String ITEM_ID = "0545010225";
+   // private static final String ITEM_ID = "0545010225";
+    private static final String AFFILIATE_CODE = "DUMMY";
 
 
 
-    public static List<BooksModel> getBooksByTitle(String searchString){
+    /*
+    * Search by keywords
+    *
+    * @searchString : keywords( Ex: Lean Startup)
+    * @searchCategory :  Books, Apparel, Film etc
+    * http://docs.aws.amazon.com/AWSECommerceService/2011-08-01/DG/ItemSearch.html
+    *
+    *
+    * <Items>
+        <Request>...</Request>
+        <TotalResults>185</TotalResults>
+        <TotalPages>19</TotalPages>
+        <MoreSearchResultsUrl>...</MoreSearchResultsUrl>
+        <Item>...</Item>
+        <Item>...</Item>
+        <Item>...</Item>
+      </Items>
+    *
+    */
+    public static List<BooksModel> getBooksByTitle(String searchString, String searchCategory){
         /*
          * Set up the signed requests helper
          */
@@ -71,19 +91,69 @@ class AmazonBooksDataProvider {
         System.out.println("Map form example:");
         Map<String, String> params = new HashMap<String, String>();
         params.put("Service", "AWSECommerceService");
-        params.put("Version", "2009-03-31");
-        params.put("Operation", "ItemLookup");
-        params.put("ItemId", ITEM_ID);
+        params.put("Version", "2011-08-01");
+        params.put("Operation", "ItemSearch");
+        params.put("Keywords", searchString);
+        params.put("SearchIndex",searchCategory)
         params.put("ResponseGroup", "Small,Images"); //To get Title and Images
         //params.put("ResponseGroup", "Small"); //TO GET TITLE
         //params.put("ResponseGroup", "Images");  //TO  GET IMAGES
         //params.put("AssociateTag", "progressprobl-22");    //TODO: Change to your Affiliate Tag
-        params.put("AssociateTag", "DUMMY");    //TODO: Change to your Affiliate Tag
+        params.put("AssociateTag", AFFILIATE_CODE);    //TODO: Change to your Affiliate Tag
 
         requestUrl = helper.sign(params);
         System.out.println("Signed Request is \"" + requestUrl + "\"");
 
-        List<BooksModel> booksModel = parseBookInfo(requestUrl);
+        List<BooksModel> booksModel = parseBookInfoForItemLookup(requestUrl);
+
+        return booksModel;
+
+
+
+    }
+
+
+
+    /*
+     * Look up a book by ISBN/ASIN/UPC code etc
+     * http://docs.aws.amazon.com/AWSECommerceService/2011-08-01/DG/ItemLookup.html
+     */
+    public static List<BooksModel> getBooksByUniqueIdentifier(String uniqueIdentifier){
+        /*
+         * Set up the signed requests helper
+         */
+        SignedRequestsHelper helper;
+        try {
+            helper = SignedRequestsHelper.getInstance(ENDPOINT, AWS_ACCESS_KEY_ID, AWS_SECRET_KEY);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+
+        String requestUrl = null;
+        String title = null;
+
+        /* The helper can sign requests in two forms - map form and string form */
+
+        /*
+        * Here is an example in map form, where the request parameters are stored in a map.
+        */
+        System.out.println("Map form example:");
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("Service", "AWSECommerceService");
+        params.put("Version", "2011-08-01");
+        params.put("Operation", "ItemLookup");
+        params.put("ItemId", uniqueIdentifier);
+        params.put("ResponseGroup", "Small,Images"); //To get Title and Images
+        //params.put("ResponseGroup", "Small"); //TO GET TITLE
+        //params.put("ResponseGroup", "Images");  //TO  GET IMAGES
+        //params.put("AssociateTag", "progressprobl-22");    //TODO: Change to your Affiliate Tag
+        params.put("AssociateTag", AFFILIATE_CODE);    //TODO: Change to your Affiliate Tag
+
+        requestUrl = helper.sign(params);
+        System.out.println("Signed Request is \"" + requestUrl + "\"");
+
+        List<BooksModel> booksModel = parseBookInfoForItemLookup(requestUrl);
 
         return booksModel;
 
@@ -125,36 +195,58 @@ class AmazonBooksDataProvider {
             </Items>
              */
 
-    private static List<BooksModel> parseBookInfo(String requestUrl) {
-        List<BooksModel> booksModel = new ArrayList<BooksModel>()
+    private static List<BooksModel> parseBookInfoForItemLookup(String requestUrl) {
+        ArrayList<BooksModel>  listOfBooksFound = new ArrayList<BooksModel>()
         try {
 
-           def xml = new XmlSlurper().parse(requestUrl)
+            def xml = new XmlParser().parse(requestUrl)
+            // def xml = new XmlSlurper().parse("/Users/naren/Downloads/dummy.xml")
 
 
-            xml."Items".each{
-                //println it.text()
-                println it."Item"."ASIN".text()
-                println it."Item"."ItemAttributes"."Author".text()
-                println it."Item"."ItemAttributes"."Title".text()
-                /*println it."Item"."SmallImage"."URL".text()
-                println it."Item"."MediumImage"."URL".text()
-                println it."Item"."LargeImage"."URL".text()
-                  */
-                println it."Item"."ImageSets"."ImageSet"."SwatchImage"."URL".text()
-                println it."Item"."ImageSets"."ImageSet"."SmallImage"."URL".text()
-                println it."Item"."ImageSets"."ImageSet"."ThumbnailImage"."URL".text()
-                println it."Item"."ImageSets"."ImageSet"."TinyImage"."URL".text()
-                println it."Item"."ImageSets"."ImageSet"."MediumImage"."URL".text()
-                println it."Item"."ImageSets"."ImageSet"."LargeImage"."URL".text()
+            xml."Items"."Item".each{
 
+
+
+               /* println "**************************"
+
+                println it."ASIN".text()
+                println it."ItemAttributes"."Author".text()
+                println it."ItemAttributes"."Title".text()
+                println it."DetailPageURL".text()
+                //println it."SmallImage"."URL".text()
+                //println it."MediumImage"."URL".text()
+                //println it."LargeImage"."URL".text()
+                println it."ImageSets"."ImageSet"."SwatchImage"."URL".text()
+                println it."ImageSets"."ImageSet"."SmallImage"."URL".text()
+                println it."ImageSets"."ImageSet"."ThumbnailImage"."URL".text()
+                println it."ImageSets"."ImageSet"."TinyImage"."URL".text()
+                println it."ImageSets"."ImageSet"."MediumImage"."URL".text()
+                println it."ImageSets"."ImageSet"."LargeImage"."URL".text()
+
+
+                println "**************************"             */
+                
+                
+                BooksModel bookModel = new BooksModel()
+                bookModel.setTitle(it."ItemAttributes"."Title".text())
+                bookModel.setAuthors(it."ItemAttributes"."Author".text())
+                bookModel.setLinkToBuyBook(it."DetailPageURL".text())
+                bookModel.getImageLinks().setSwatchImage(it."ImageSets"."ImageSet"."SwatchImage"."URL".text())
+                bookModel.getImageLinks().setSmall(it."ImageSets"."ImageSet"."SmallImage"."URL".text())
+                bookModel.getImageLinks().setThumbnail(it."ImageSets"."ImageSet"."ThumbnailImage"."URL".text())
+                bookModel.getImageLinks().setTinyImage( it."ImageSets"."ImageSet"."TinyImage"."URL".text())
+                bookModel.getImageLinks().setMedium(it."ImageSets"."ImageSet"."MediumImage"."URL".text())
+                bookModel.getImageLinks().setLarge(it."ImageSets"."ImageSet"."LargeImage"."URL".text())
+
+                listOfBooksFound.add(bookModel)
+                
             }
 
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return booksModel;
+        return listOfBooksFound;
     }
 
     /*
