@@ -39,6 +39,7 @@
 # "temporary" build files
 /target
 /target/classes
+/out
 
 # other
 *.iws
