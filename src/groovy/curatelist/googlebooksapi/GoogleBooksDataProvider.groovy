@@ -115,12 +115,12 @@ public class GoogleBooksDataProvider {
             }
 
             //Images of Book Cover
-           /* booksModel.getImageLinks().setExtraLarge(volumeInfo.getImageLinks().getExtraLarge())
+            booksModel.getImageLinks().setExtraLarge(volumeInfo.getImageLinks().getExtraLarge())
             booksModel.getImageLinks().setLarge(volumeInfo.getImageLinks().getLarge())
             booksModel.getImageLinks().setSmall(volumeInfo.getImageLinks().getSmall())
             booksModel.getImageLinks().setThumbnail(volumeInfo.getImageLinks().getThumbnail())
             booksModel.getImageLinks().setSmallThumbnail(volumeInfo.getImageLinks().getSmallThumbnail())
-             */
+
             listOfBooksFound.add(booksModel)
 
         }

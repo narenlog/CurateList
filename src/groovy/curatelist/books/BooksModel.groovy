@@ -15,6 +15,10 @@ class BooksModel {
     String authors //csv
     String description
     ImageLinks imageLinks
+
+    public BooksModel(){
+        this.imageLinks = new ImageLinks()
+    }
 }
 
 

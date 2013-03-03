@@ -1,6 +1,7 @@
 package curatelist.books
 
 import curatelist.googlebooksapi.GoogleBooksDataProvider
+import curatelist.amazonProductAdvertisingAPI.AmazonBooksDataProvider
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,13 +12,17 @@ import curatelist.googlebooksapi.GoogleBooksDataProvider
  */
 class BooksDataProvider {
 
-   def   List<BooksModel> getBooksByTitle(String title){
+   def   List<BooksModel> getBooksByTitle(String searchString){
 
        PROVIDER defaultProvider = getDefaultProvider()
        switch(defaultProvider){
 
+           case PROVIDER.AMAZON:
+               AmazonBooksDataProvider.getBooksByTitle(searchString)
+               
+               
            case PROVIDER.GOOGLE:
-               GoogleBooksDataProvider.queryGoogleBooks(title)
+               GoogleBooksDataProvider.queryGoogleBooks(searchString)
                break;
 
            default:
@@ -28,7 +33,8 @@ class BooksDataProvider {
    }
 
    def PROVIDER getDefaultProvider(){
-       PROVIDER.GOOGLE
+       PROVIDER.AMAZON
+       //PROVIDER.GOOGLE
    }
 
 }
