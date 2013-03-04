@@ -48,19 +48,6 @@ public class HomePage extends BasePage {
 
         add(new HomeFindForm("homeFindForm"))
 
-
-        add(new Link<Void>("booksLink"){
-
-            @SpringBean(name="bookService")
-            IBookService bookService
-
-            @Override
-            void onClick() {
-
-                bookService.findBooksByTitle("Lean Startup")
-
-            }
-        })
         
 
     }

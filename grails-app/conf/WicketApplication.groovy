@@ -12,6 +12,7 @@ import curatelist.profile.VarunPage
 import curatelist.profile.AnnaProfilePage
 import curatelist.searchresults.SearchResultsPage
 import curatelist.profile.SeanPage
+import curatelist.profile.SearchQueryPage
 
 public class WicketApplication extends WebApplication {
     
@@ -26,6 +27,8 @@ public class WicketApplication extends WebApplication {
     protected void init() {
         super.init()
         addComponentInstantiationListener(new SpringComponentInjector(this, ApplicationHolder.getApplication().getMainContext(), false));
+
+        mountBookmarkablePage("/search",SearchQueryPage.class)
 
         mountBookmarkablePage("/searchresults",SearchResultsPage.class)
 

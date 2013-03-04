@@ -18,7 +18,7 @@ class BooksDataProvider {
        switch(defaultProvider){
 
            case PROVIDER.AMAZON:
-               AmazonBooksDataProvider.getBooksByTitle("Founder's Dilemma", "Books")
+               AmazonBooksDataProvider.getBooksByTitle(searchString, "Books")
                //AmazonBooksDataProvider.getBooksByUniqueIdentifier("0307887898") //lean startup  ISBN number
                break;
                
