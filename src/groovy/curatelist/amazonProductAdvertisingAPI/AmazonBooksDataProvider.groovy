@@ -47,6 +47,7 @@ class AmazonBooksDataProvider {
    // private static final String ITEM_ID = "0545010225";
     private static final String AFFILIATE_CODE = "DUMMY";
 
+    private static final String API_VERSION = "2011-08-01"
 
 
     /*
@@ -91,14 +92,13 @@ class AmazonBooksDataProvider {
         System.out.println("Map form example:");
         Map<String, String> params = new HashMap<String, String>();
         params.put("Service", "AWSECommerceService");
-        params.put("Version", "2011-08-01");
+        params.put("Version", API_VERSION);
         params.put("Operation", "ItemSearch");
         params.put("Keywords", searchString);
         params.put("SearchIndex",searchCategory)
         params.put("ResponseGroup", "Small,Images"); //To get Title and Images
         //params.put("ResponseGroup", "Small"); //TO GET TITLE
         //params.put("ResponseGroup", "Images");  //TO  GET IMAGES
-        //params.put("AssociateTag", "progressprobl-22");    //TODO: Change to your Affiliate Tag
         params.put("AssociateTag", AFFILIATE_CODE);    //TODO: Change to your Affiliate Tag
 
         requestUrl = helper.sign(params);
@@ -141,13 +141,12 @@ class AmazonBooksDataProvider {
         System.out.println("Map form example:");
         Map<String, String> params = new HashMap<String, String>();
         params.put("Service", "AWSECommerceService");
-        params.put("Version", "2011-08-01");
+        params.put("Version", API_VERSION);
         params.put("Operation", "ItemLookup");
         params.put("ItemId", uniqueIdentifier);
         params.put("ResponseGroup", "Small,Images"); //To get Title and Images
         //params.put("ResponseGroup", "Small"); //TO GET TITLE
         //params.put("ResponseGroup", "Images");  //TO  GET IMAGES
-        //params.put("AssociateTag", "progressprobl-22");    //TODO: Change to your Affiliate Tag
         params.put("AssociateTag", AFFILIATE_CODE);    //TODO: Change to your Affiliate Tag
 
         requestUrl = helper.sign(params);
