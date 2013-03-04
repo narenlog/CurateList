@@ -13,6 +13,13 @@ import curatelist.searchresults.SearchResultsPage
 import org.apache.wicket.markup.html.form.TextField
 import org.apache.wicket.model.PropertyModel
 import org.apache.wicket.validation.validator.EmailAddressValidator
+import org.apache.wicket.markup.html.WebMarkupContainer
+import curatelist.books.BooksModel
+import org.apache.wicket.markup.repeater.RepeatingView
+import org.apache.wicket.markup.html.pages.RedirectPage
+import org.apache.wicket.markup.html.basic.Label
+import curatelist.utils.ExternalImage
+import org.apache.wicket.model.Model
 
 /**
  * Homepage
@@ -32,6 +39,12 @@ public class SearchQueryPage extends BasePage {
     public SearchQueryPage(final PageParameters parameters) {
 
         add(new SearchForm("searchForm"))
+
+        RepeatingView searchResults = new RepeatingView("searchResults")
+        searchResults.setOutputMarkupId(true)
+        searchResults.setOutputMarkupPlaceholderTag(true)
+        add(searchResults)
+
     }
 
 
@@ -55,6 +68,9 @@ public class SearchQueryPage extends BasePage {
             TextField searchText = new TextField("searchText", new PropertyModel(properties,"searchText") )
             searchText.setRequired(true)
             add(searchText)
+            
+            
+
         }
 
         @Override
@@ -64,7 +80,34 @@ public class SearchQueryPage extends BasePage {
             
             String searchText = properties.getString("searchText")
             
-            bookService.findBooksByTitle(searchText)
+            List<BooksModel> books = bookService.findBooksByTitle(searchText)
+
+
+            RepeatingView searchResults = new RepeatingView("searchResults")
+
+            books.each { BooksModel book ->
+
+                WebMarkupContainer item = new WebMarkupContainer(searchResults.newChildId())
+                searchResults.add(item)
+
+
+                Link<Void> linkToBuyBook = new Link<Void>("linkToBuyBook"){
+
+                    @Override
+                    public void onClick(){
+                        setResponsePage(new RedirectPage(book.getLinkToBuyBook()))
+                    }
+
+                }
+                linkToBuyBook.add(new ExternalImage("mediumImage",new Model(book.getImageLinks().getMedium())))
+                item.add(linkToBuyBook)
+                
+                item.add(new Label("bookTitle",book.getTitle()))
+
+
+            }
+            getPage().replace(searchResults)
+
         }
 
 

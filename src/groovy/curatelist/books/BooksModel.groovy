@@ -7,8 +7,9 @@ package curatelist.books
  * Time: 6:40 PM
  * To change this template use File | Settings | File Templates.
  */
-class BooksModel {
-    
+class BooksModel implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     
     String title
     String subtitle
@@ -23,7 +24,9 @@ class BooksModel {
 }
 
 
-class ImageLinks{
+class ImageLinks implements  Serializable{
+
+    private static final long serialVersionUID = 1L;
 
      java.lang.String extraLarge;//Google only
      java.lang.String large;

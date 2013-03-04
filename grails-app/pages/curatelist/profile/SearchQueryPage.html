@@ -6,7 +6,7 @@
 <span class="jumbotron">
                  <div  class="input-append">
                      <form wicket:id="searchForm">
-                         <input  wicket:id="searchText" type="text" class="span4" style="height: 40px;" placeholder="From Good to Great, Five Hour WorkWeek">
+                         <input  wicket:id="searchText" type="text" class="span4" style="height: 40px;" placeholder="From Good to Great, Four Hour Work Week, Lean Startup">
 
                          <button type="submit" class="btn btn-primary">Search</button>
                      </form>
@@ -15,6 +15,25 @@
       </span>
 <hr/>
 
+    <div class="row">
+        <ul wicket:id="searchResults" class="thumbnails">
+            <li class="span3">
+                <div class="thumbnail" style="border:none">
+                    <a wicket:id="linkToBuyBook">
+                        <img  wicket:id="mediumImage" />
+                    </a>
+                </div>
 
+            </li>
+            <li class="span3">
+
+                 <span class="caption">
+                    <h5 wicket:id="bookTitle"></h5>
+             </span>
+            </li>
+
+
+        </ul>
+    </div>
 
 </wicket:extend>

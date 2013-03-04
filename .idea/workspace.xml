@@ -59,11 +59,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SearchQueryPage.groovy" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SearchQueryPage.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/profile/SearchQueryPage.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="31" selection-start="1339" selection-end="1339" vertical-scroll-proportion="1.4961637">
+            <state line="28" column="57" selection-start="998" selection-end="1046" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExternalImage.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/utils/ExternalImage.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="0" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#26#75#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,7 +82,25 @@
       <file leaf-file-name="SearchQueryPage.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/profile/SearchQueryPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="14" selection-start="461" selection-end="461" vertical-scroll-proportion="-10.0">
+            <state line="12" column="87" selection-start="431" selection-end="431" vertical-scroll-proportion="-7.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BooksModel.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/groovy/curatelist/books/BooksModel.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="4" selection-start="591" selection-end="591" vertical-scroll-proportion="0.52845526">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookService.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/curatelist/BookService.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="67" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -91,13 +120,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/services/curatelist/IBookService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/spring/resources.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
         <option value="$PROJECT_DIR$/src/groovy/curatelist/googlebooksapi/GoogleBooksDataProvider.groovy" />
         <option value="$PROJECT_DIR$/src/groovy/curatelist/amazonProductAdvertisingAPI/SignedRequestsHelper.java" />
         <option value="$PROJECT_DIR$/src/groovy/curatelist/amazonProductAdvertisingAPI/ItemLookupSample.java" />
-        <option value="$PROJECT_DIR$/src/groovy/curatelist/books/BooksModel.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/curatelist/BookService.groovy" />
         <option value="$PROJECT_DIR$/src/groovy/curatelist/amazonProductAdvertisingAPI/AmazonBooksDataProvider.groovy" />
         <option value="$PROJECT_DIR$/grails-app/pages/curatelist/profile/SearchResultsPage.groovy" />
@@ -105,8 +132,10 @@
         <option value="$PROJECT_DIR$/grails-app/pages/curatelist/home/HomePage.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/WicketApplication.groovy" />
         <option value="$PROJECT_DIR$/src/groovy/curatelist/books/BooksDataProvider.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/pages/curatelist/utils/ExternalImage.groovy" />
         <option value="$PROJECT_DIR$/grails-app/pages/curatelist/profile/SearchQueryPage.groovy" />
         <option value="$PROJECT_DIR$/grails-app/pages/curatelist/profile/SearchQueryPage.html" />
+        <option value="$PROJECT_DIR$/src/groovy/curatelist/books/BooksModel.groovy" />
       </list>
     </option>
   </component>
@@ -508,27 +537,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/groovy/curatelist/googlebooksapi/BooksSample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="39" selection-start="1044" selection-end="1044" vertical-scroll-proportion="-4.6348314">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/groovy/curatelist/amazonProductAdvertisingAPI/ItemLookupSample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="32" selection-start="4966" selection-end="4966" vertical-scroll-proportion="0.9803371">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/groovy/curatelist/books/BooksModel.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="33" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/groovy/curatelist/googlebooksapi/GoogleBooksDataProvider.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="82" selection-start="2667" selection-end="2737" vertical-scroll-proportion="0.0">
@@ -539,13 +547,6 @@
     <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/searchresults/SearchResultsPage.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="13" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/searchresults/SearchResultsPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="26" selection-start="189" selection-end="189" vertical-scroll-proportion="0.3364486">
           <folding />
         </state>
       </provider>
@@ -562,13 +563,6 @@
     <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/home/HomePage.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="72" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.26573426">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/curatelist/BookService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="67" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -612,16 +606,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/profile/ProfilePage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="31" selection-start="1103" selection-end="1103" vertical-scroll-proportion="-25.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/searchresults/SearchResultsPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="46" selection-end="97" vertical-scroll-proportion="0.16157989">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/utils/ExternalImage.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#26#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/profile/SearchQueryPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="14" selection-start="461" selection-end="461" vertical-scroll-proportion="-10.0">
+        <state line="12" column="87" selection-start="431" selection-end="431" vertical-scroll-proportion="-7.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/curatelist/BookService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="67" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/pages/curatelist/profile/SearchQueryPage.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="31" selection-start="1339" selection-end="1339" vertical-scroll-proportion="1.4961637">
+        <state line="28" column="57" selection-start="998" selection-end="1046" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/groovy/curatelist/books/BooksModel.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="4" selection-start="591" selection-end="591" vertical-scroll-proportion="0.52845526">
           <folding />
         </state>
       </provider>
