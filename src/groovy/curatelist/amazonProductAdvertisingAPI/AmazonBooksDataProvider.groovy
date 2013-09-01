@@ -49,6 +49,12 @@ class AmazonBooksDataProvider {
 
     private static final String API_VERSION = "2011-08-01"
 
+    public static void main(String[] args){
+        for(BooksModel book: getBooksByTitle("Startup Life: Surviving and Thriving in a Relationship with an Entrepreneur","Books"))        {
+                System.out.println book
+                break
+        }
+    }
 
     /*
     * Search by keywords

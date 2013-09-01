@@ -13,6 +13,7 @@ import org.apache.wicket.markup.html.form.TextField
 import org.apache.wicket.model.PropertyModel
 import org.apache.wicket.validation.validator.EmailAddressValidator
 import curatelist.signup.SignupPage
+import curatelist.registration.RegisterPage1
 
 /**
  * Created by IntelliJ IDEA.
@@ -42,7 +43,7 @@ class BasePage  extends WebPage{
     add(new Link<Void>("signupLink"){
         @Override
         void onClick() {
-            setResponsePage(SignupPage.class)
+            setResponsePage(RegisterPage1.class)
         }
     })
 
